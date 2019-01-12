@@ -21,7 +21,7 @@ RUN git checkout $TAG
 RUN ./zcutil/build.sh -j$(nproc)
 
 WORKDIR /src/zcash/src
-RUN /usr/bin/install -c zcash-tx zcashd zcash-cli zcash-gtest -t /usr/bin/
+RUN /usr/bin/install -c zcash-tx zcashd zcash-cli zcash-gtest ../zcutil/fetch-params.sh -t /usr/bin/
 
 FROM debian:jessie
 
@@ -29,11 +29,11 @@ ENV ZCASH_CONF=/home/zcash/.zcash/zcash.conf
 
 RUN apt-get update
 
-RUN apt-get install -y libgomp1
+RUN apt-get install -y libgomp1 wget curl
 
 RUN apt-get clean all -y
 
-COPY --from=builder /usr/bin/zcash-cli /usr/bin/zcashd /usr/bin/
+COPY --from=builder /usr/bin/zcash-cli /usr/bin/zcashd /usr/bin/fetch-params.sh /usr/bin/
 
 RUN adduser --uid 1000 --system zcash && \
     mkdir -p /home/zcash/.zcash/ && \
