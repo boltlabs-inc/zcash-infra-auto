@@ -13,5 +13,5 @@ boltlabs/zcashd-lite:v2.0.2
 
 docker exec -itd zcashd-chain bash -c "zcashd"
 
-docker stop zcashd-chain
-docker rm zcashd-chain
+#docker stop zcashd-chain
+#docker rm zcashd-chain
