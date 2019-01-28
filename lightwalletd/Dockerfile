@@ -32,9 +32,10 @@ ENV GOPATH=$HOME/go
 
 RUN apt-get update
 
-RUN apt-get install -y libgomp1 wget curl libzmq3-dev git
+RUN apt-get install -y sudo libgomp1 wget curl libzmq3-dev git supervisor
 
 RUN apt-get clean all -y
+
 
 COPY --from=builder /usr/bin/zcash-cli /usr/bin/zcashd /usr/bin/fetch-params.sh /usr/bin/
 
@@ -44,7 +45,10 @@ RUN adduser --uid 1000 --system zcash && \
     chown -R zcash /home/zcash && \
     echo "Success"
 
-USER zcash
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY entrypoint.sh /usr/bin/
+
+#USER zcash
 RUN echo "rpcuser=zcash" > ${ZCASH_CONF} && \
         echo "rpcpassword=`head /dev/urandom | tr -dc A-Za-z0-9 | head -c 13 ; echo ''`" >> ${ZCASH_CONF} && \
         echo "addnode=mainnet.z.cash" >> ${ZCASH_CONF} && \
@@ -59,6 +63,6 @@ WORKDIR /home/zcash/lightwalletd
 
 RUN go run cmd/ingest/main.go || echo $?
 
-# TODO: add supervisor to run zmq client and API server in the background
-
 VOLUME ["/home/zcash/.zcash"]
+
+CMD ["/usr/bin/entrypoint.sh"]
