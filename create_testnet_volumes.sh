@@ -3,6 +3,8 @@
 docker volume create testnet-chain
 docker volume create testnet-params
 
+CUR_PATH=`pwd`
+
 docker run -itd \
 --name zcashd-testnet \
 --mount source=testnet-chain,destination=/home/zcash/.zcash \
