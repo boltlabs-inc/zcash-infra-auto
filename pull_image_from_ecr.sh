@@ -19,10 +19,10 @@ if [ "$STATUS" -eq "0" ]; then
    VERS2=v2.0.2
 
    docker pull $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$IMAGE1:$VERS1
-   docker tag $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$IMAGE1:$VERS1 botllabs/$IMAGE1:$VERS1
+   docker tag $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$IMAGE1:$VERS1 boltlabs/$IMAGE1:$VERS1
 
    docker pull $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$IMAGE2:$VERS2
-   docker tag $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$IMAGE2:$VERS2 botllabs/$IMAGE2:$VERS2
+   docker tag $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$IMAGE2:$VERS2 boltlabs/$IMAGE2:$VERS2
 fi
 
 exit 0
