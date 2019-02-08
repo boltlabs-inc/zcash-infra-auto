@@ -18,9 +18,10 @@ if [ "$STATUS" -eq "0" ]; then
    VERS2=v2.0.2
 
    #docker build -t $IMAGE1 .
-   #docker tag boltlabs/$IMAGE1:latest $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$IMAGE1:latest
-   #docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$IMAGE1:latest
+   docker tag boltlabs/$IMAGE1:latest $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$IMAGE1:latest
+   docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$IMAGE1:latest
 
+   #docker build -t $IMAGE2 .
    docker tag boltlabs/$IMAGE2:$VERS2 $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$IMAGE2:$VERS2
    docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$IMAGE2:$VERS2
 fi
