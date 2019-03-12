@@ -16,7 +16,7 @@ if [ "$STATUS" -eq "0" ]; then
    IMAGE1=zcashd-lwd
    VERS1=latest
    IMAGE2=zcashd-lite
-   VERS2=v2.0.2
+   VERS2=v2.0.3
 
    docker pull $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$IMAGE1:$VERS1
    docker tag $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$IMAGE1:$VERS1 boltlabs/$IMAGE1:$VERS1
