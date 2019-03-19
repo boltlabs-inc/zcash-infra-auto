@@ -5,7 +5,7 @@ docker volume create mainnet-params
 docker run -itd \
 --name zcashd-params \
 --mount source=mainnet-params,destination=/home/zcash/.zcash-params \
-boltlabs/zcashd-lite:v2.0.2
+boltlabs/zcashd-lite:v2.0.3
 
 docker exec -it zcashd-params bash -c "fetch-params.sh"
 

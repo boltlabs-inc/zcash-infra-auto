@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CUR_PATH=`PWD`
+CUR_PATH=`pwd`
 
 docker run -itd \
 --name zcashd \
