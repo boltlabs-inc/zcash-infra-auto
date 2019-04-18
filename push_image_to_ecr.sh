@@ -15,7 +15,7 @@ if [ "$STATUS" -eq "0" ]; then
    AWS_REGION=us-east-1
    IMAGE1=zcashd-lwd
    IMAGE2=zcashd-lite
-   VERS2=v2.0.3
+   VERS2=v2.0.4
 
    #docker build -t $IMAGE1 .
    docker tag boltlabs/$IMAGE1:latest $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$IMAGE1:latest
