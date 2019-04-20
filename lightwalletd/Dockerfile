@@ -1,6 +1,6 @@
 FROM golang:1.11 AS builder
 
-ENV ZCASH_URL=https://github.com/boltlabs-inc/zcash.git \
+ENV ZCASH_URL=https://github.com/zcash/zcash.git \
     ZCASH_CONF=/home/zcash/.zcash/zcash.conf
 
 ARG TAG
