@@ -10,7 +10,7 @@ docker run -itd \
 --mount source=testnet-chain,destination=/home/zcash/.zcash \
 --mount source=testnet-params,destination=/home/zcash/.zcash-params \
 -v $CUR_PATH/testnet.daemon.conf:/home/zcash/.zcash/zcash.conf \
-boltlabs/zcashd-lite:v2.0.3
+boltlabs/zcashd-lite:v2.0.6
 
 docker exec -it zcashd-testnet bash -c "fetch-params.sh"
 
